@@ -1,0 +1,57 @@
+---
+const projects = [
+    {
+        title: "Text to Image (literally)",
+        description: "A small utility to convert text to image using Rust, made when learning Rust.",
+        tech: ["Rust"],
+        link: { label: "GitHub", href: "https://github.com/Crian69/text-to-image-rs" },
+    },
+    {
+        title: "Discord Transcript Bot",
+        description: "A bot to create transcripts of Discord text channels, made for a friend.",
+        tech: ["Discord.py", "Python"],
+        link: { label: "GitHub", href: "https://github.com/Crian69/discord-transcript-bot-python" },
+    }
+];
+---
+
+<section class="px-4 py-16">
+    <div class="max-w-4xl mx-auto">
+        <h2 class="text-2xl font-medium mb-8">Projects</h2>
+
+        <div class="space-y-6">
+            {
+                projects.map((project) => (
+                    <div class="border-l-2 border-gray-200 dark:border-gray-800 pl-6">
+                        <div class="flex items-baseline justify-between gap-4 mb-2">
+                            <h3 class="text-lg font-medium">{project.title}</h3>
+                            {project.link && (
+                                <a
+                                    href={project.link.href}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="text-sm text-gray-500 hover:text-gray-900 dark:text-gray-500 dark:hover:text-gray-300"
+                                >
+                                    {project.link.label}
+                                </a>
+                            )}
+                        </div>
+
+                        <p class="text-gray-600 dark:text-gray-400 mb-3">
+                            {project.description}
+                        </p>
+
+                        {project.tech && project.tech.length > 0 && (
+                            <div class="flex flex-wrap gap-3 text-sm text-gray-500">
+                                {project.tech.map((t) => (
+                                    <span>{t}</span>
+                                ))}
+                            </div>
+                        )}
+                    </div>
+                ))
+            }
+        </div>
+    </div>
+</section>
+

@@ -1,0 +1,69 @@
+---
+const achievements = [
+    {
+        title: "SIGCSE TS 2025",
+        description:
+            "Acknowledged in a workshop at SIGCSE TS 2025, the world's #1 conference in CS Education. Dr. Badri Adhikari and Dr. Jie Hou officially thanked me for helping them with the tutorial.",
+        meta: ["Acknowledgement", "2025"],
+        link: { label: "Workshop page", href: "https://badriadhikari.github.io/pf-online-compiler-workshop/" },
+    },
+    {
+        title: "NELTA 2026",
+        description:
+            "Presented workshop on Promoting Academic Integrity and Self-reflection with Process Feedback.",
+        meta: ["Presenter", "2026"],
+        link: { label: "Event page", href: "https://www.nelta.org.np/conference/30" },
+    },
+    {
+        title: "Star Global Conference 2024",
+        description:
+            "Presented workshop on Teaching Computer Programming with a Focus on the Coding Process.",
+        meta: ["Presenter", "2024"],
+        link: { label: "Event page", href: "https://starscholars.org/2024-sgc/" },
+    },
+];
+---
+
+<section class="px-4 py-16">
+    <div class="max-w-4xl mx-auto">
+        <h2 class="text-2xl font-medium mb-8">Speaking & Recognition</h2>
+
+        <div class="space-y-6">
+            {
+                achievements.map((a) => (
+                    <div class="border-l-2 border-gray-200 dark:border-gray-800 pl-6">
+                        <div class="flex items-baseline justify-between gap-4 mb-2">
+                            <h3 class="text-lg font-medium">{a.title}</h3>
+                            {a.link && (
+                                <a
+                                    href={a.link.href}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="text-sm text-gray-500 hover:text-gray-900 dark:text-gray-500 dark:hover:text-gray-300"
+                                >
+                                    {a.link.label}
+                                </a>
+                            )}
+                        </div>
+
+                        <p class="text-gray-600 dark:text-gray-400 mb-3">
+                            {a.description}
+                        </p>
+
+                        {a.meta && a.meta.length > 0 && (
+                            <div class="flex flex-wrap gap-3 text-sm text-gray-500">
+                                {a.meta.map((m) => (
+                                    <span>{m}</span>
+                                ))}
+                            </div>
+                        )}
+                    </div>
+                ))
+            }
+        </div>
+
+        <p class="mt-8 text-sm text-gray-500">
+            Thanks to <a href="https://processfeedback.org" target="_blank" rel="noopener noreferrer" class="hover:text-gray-900 dark:hover:text-gray-300">Process Feedback</a> for providing these opportunities.
+        </p>
+    </div>
+</section>
